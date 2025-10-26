@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dei4gwxlo4kxs"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/MassBody.gd" id="1_op1lt"]
+[ext_resource type="Texture2D" uid="uid://dpx7tjm73nfs7" path="res://Assets/Shapes/Circle.png" id="2_b6a10"]
+[ext_resource type="Script" path="res://addons/trail_2d/trail_2d.gd" id="3_tisxk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ssxtw"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0473"]
+
+[sub_resource type="Curve" id="Curve_di3jh"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_aaiwa"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0627451)
+
+[node name="MassBody" type="RigidBody2D" groups=["bodies"]]
+physics_material_override = SubResource("PhysicsMaterial_ssxtw")
+gravity_scale = 0.0
+script = ExtResource("1_op1lt")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+shape = SubResource("CircleShape2D_q0473")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_b6a10")
+
+[node name="Trail2D" type="Line2D" parent="."]
+z_index = -1
+width_curve = SubResource("Curve_di3jh")
+gradient = SubResource("Gradient_aaiwa")
+script = ExtResource("3_tisxk")
+
+[node name="OrbitPath" type="Line2D" parent="."]
+width = 2.0
+script = ExtResource("3_tisxk")
+length = 100

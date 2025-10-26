@@ -1,0 +1,111 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj2pcv7y224na"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/mass_body_ui.gd" id="1_nmhgv"]
+
+[node name="MassBodyUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nmhgv")
+
+[node name="TextBodyMass" type="Label" parent="."]
+self_modulate = Color(0.307899, 0.67355, 1, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 473.0
+offset_right = 251.0
+offset_bottom = 525.0
+text = "Body Mass : 10000
+
+"
+
+[node name="BodyMass" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 500.0
+offset_right = 274.0
+offset_bottom = 548.0
+min_value = 100.0
+max_value = 100000.0
+value = 10000.0
+
+[node name="TextScaling" type="Label" parent="."]
+self_modulate = Color(0.307899, 0.67355, 1, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 548.0
+offset_right = 251.0
+offset_bottom = 574.0
+text = "Scaling : 1
+"
+
+[node name="Scaling" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 571.0
+offset_right = 274.0
+offset_bottom = 619.0
+max_value = 10.0
+step = 0.01
+value = 1.0
+allow_greater = true
+
+[node name="TextVelocity" type="Label" parent="."]
+self_modulate = Color(0.307899, 0.67355, 1, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 394.0
+offset_right = 251.0
+offset_bottom = 420.0
+text = "Velocity : 1
+"
+
+[node name="Velocity" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 417.0
+offset_right = 274.0
+offset_bottom = 465.0
+max_value = 1000.0
+step = 0.01
+value = 1.0
+allow_greater = true
+
+[node name="TextAngle" type="Label" parent="."]
+self_modulate = Color(0.307899, 0.67355, 1, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 318.0
+offset_right = 251.0
+offset_bottom = 344.0
+text = "Launch Angle : 1°
+"
+
+[node name="Angle" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 341.0
+offset_right = 274.0
+offset_bottom = 389.0
+max_value = 360.0
+step = 0.01
+allow_greater = true
+
+[node name="ColorLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 967.0
+offset_top = 500.0
+offset_right = 1198.0
+offset_bottom = 526.0
+text = "BodyMass Color :"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+layout_mode = 0
+offset_left = 999.0
+offset_top = 527.0
+offset_right = 1073.0
+offset_bottom = 606.0
+color = Color(1, 1, 1, 1)
