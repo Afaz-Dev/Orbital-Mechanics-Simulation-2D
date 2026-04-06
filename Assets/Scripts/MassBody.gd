@@ -1,24 +1,40 @@
 extends RigidBody2D
 
-@export var bodymass = 10000.00
-@export var scaling = 1.00
-@onready var GM = null
+@export var bodymass = 10000.0
+@export var scaling = 1.0
 
-# Called when the node enters the scene tree for the first time.
+# Use a SMALL game-scaled G, not real-world
+@onready var G = Equations.GConstant
+
 func _ready():
-	self.mass = bodymass * pow(10, 12)
-	GM = (Equations.GConstant * bodymass) #* scaling
-	$Sprite2D.scale = Vector2($Sprite2D.scale.x * scaling, $Sprite2D.scale.y * scaling)
-	$CollisionShape2D.scale = Vector2($CollisionShape2D.scale.x * scaling, $CollisionShape2D.scale.y * scaling)
+	# ❌ Remove huge scaling (breaks physics engine)
+	self.mass = bodymass
+
+	# Scale visuals only
+	$Sprite2D.scale *= scaling
+	$CollisionShape2D.scale *= scaling
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta) :
-	for ToAttract in get_tree().get_nodes_in_group("bodies"):
-		if not ToAttract == self :
-			var distance = sqrt(pow(ToAttract.position.x - self.position.x, 2) + pow(ToAttract.position.y - self.position.y, 2))
-			var g = (GM) / (pow(distance, 2))
-			
-			var dir = ToAttract.get_angle_to(self.position)
-			ToAttract.linear_velocity.x += g * cos(dir) * delta*16
-			ToAttract.linear_velocity.y += g * sin(dir) * delta*16
+func _physics_process(delta):
+	for other in get_tree().get_nodes_in_group("bodies"):
+		if other == self:
+			continue
+		
+		# Vector from THIS body to OTHER body
+		var offset = other.position - self.position
+		var distance = offset.length()
+		
+		# Prevent extreme forces / division by zero
+		if distance < 5:
+			continue
+		
+		var direction = offset.normalized()
+		
+		# Softening factor for stability
+		var softening = 25.0
+		
+		# ✅ Correct acceleration formula: a = G * M / r²
+		var acceleration = (G * other.mass) / ((distance * distance) + softening)
+		
+		# ✅ Apply force to SELF (not the other body)
+		self.linear_velocity += direction * acceleration * delta

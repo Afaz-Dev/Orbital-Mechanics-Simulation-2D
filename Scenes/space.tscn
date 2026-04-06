@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ssw2w5ji5c5k"]
+[gd_scene format=3 uid="uid://ssw2w5ji5c5k"]
 
 [ext_resource type="PackedScene" uid="uid://bj2pcv7y224na" path="res://Scenes/mass_body_ui.tscn" id="2_q7hjd"]
 [ext_resource type="PackedScene" uid="uid://qddvhefrxarj" path="res://Scenes/camera_node.tscn" id="2_xn8ut"]
 
-[node name="Space" type="Node"]
+[node name="Space" type="Node" unique_id=1952923449]
 
-[node name="Bodies" type="Node2D" parent="."]
+[node name="Bodies" type="Node2D" parent="." unique_id=1145710415]
 
-[node name="CameraNode" parent="." instance=ExtResource("2_xn8ut")]
+[node name="CameraNode" parent="." unique_id=1211659714 instance=ExtResource("2_xn8ut")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=634380454]
 
-[node name="MassBodyUi" parent="CanvasLayer" instance=ExtResource("2_q7hjd")]
+[node name="MassBodyUi" parent="CanvasLayer" unique_id=1608730036 instance=ExtResource("2_q7hjd")]

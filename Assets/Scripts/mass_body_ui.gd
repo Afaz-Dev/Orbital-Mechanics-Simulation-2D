@@ -11,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var mouseposition = get_global_mouse_position()
+	var mouseposition = get_viewport().get_camera_2d().get_global_mouse_position()
 	var mouseoffset = get_local_mouse_position()
 	var current_scene = get_tree().get_current_scene()
 	
