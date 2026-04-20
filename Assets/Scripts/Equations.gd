@@ -1,20 +1,17 @@
 extends Node
 
-var GConstant = 6.6743
-var GConstantReal = 6.6743 * pow(10, -11)
+const GConstant = 6.6743
+const GConstantReal = 6.6743 * pow(10, -11)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+# μ = G * M
+func mu(mass):
+	return GConstantReal * mass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func orbitalpolarchord(eccentric, majoraxis, deg) :
 	var latus = 0 
 	var radial = 0
+	
 	if (eccentric < 1) and (eccentric >= 0) :
 		latus = majoraxis * (1 - pow(eccentric, 2))
 	elif (eccentric > 1) :
@@ -23,11 +20,54 @@ func orbitalpolarchord(eccentric, majoraxis, deg) :
 	radial = (latus / (1 + eccentric * cos(deg * (PI / 180))))
 	return radial
 
+
 func ToVectors(radius, deg) :
 	var vec = Vector2(radius*cos(deg * (PI / 180)), radius*sin(deg * (PI / 180)))
 	return vec
 
-func velocity(gravconstant, majoraxis, deg) :
-	var rad = orbitalpolarchord(gravconstant, majoraxis, deg)
-	var v = pow(gravconstant, 1/2) * pow((2/rad) - (1/majoraxis), 1/2)
+
+# velocity (vis-viva)
+func velocity(mu_value, radius, majoraxis) :
+	var v = pow(mu_value * ((2.0 / radius) - (1.0 / majoraxis)), 0.5)
 	return v
+
+
+# convert state to orbital parameters
+func state_to_orbit(position: Vector2, velocity_vec: Vector2, mu_value):
+	var r = position.length()
+	var v = velocity_vec.length()
+	
+	# angular momentum 2D
+	var h = position.x * velocity_vec.y - position.y * velocity_vec.x
+	
+	# specific energy
+	var energy = (v * v) / 2 - (mu_value / r)
+	
+	# semi-major axis
+	var majoraxis = -mu_value / (2 * energy)
+	
+	# eccentricity vector
+	var e_vec = ((v * v - mu_value / r) * position - (position.dot(velocity_vec)) * velocity_vec) / mu_value
+	var eccentric = e_vec.length()
+	
+	# true anomaly
+	var cos_nu = e_vec.dot(position) / (eccentric * r)
+	cos_nu = clamp(cos_nu, -1.0, 1.0)
+	var deg = rad_to_deg(acos(cos_nu))
+	
+	# fix quadrant
+	if position.dot(velocity_vec) < 0:
+		deg = 360 - deg
+	
+	return {
+		"majoraxis": majoraxis,
+		"eccentric": eccentric,
+		"true_anomaly": deg,
+		"h": h
+	}
+
+
+# reconstruct position from orbit
+func orbit_to_position(eccentric, majoraxis, deg):
+	var r = orbitalpolarchord(eccentric, majoraxis, deg)
+	return ToVectors(r, deg)

@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://bj2pcv7y224na"]
+
+[ext_resource type="Script" uid="uid://bfte42n8ioig6" path="res://Assets/Scripts/editor_ui.gd" id="1_5y355"]
+[ext_resource type="Texture2D" uid="uid://0xmp6tl2uv0i" path="res://Assets/References/Screenshot_20260420_015424_WorldBox.jpg" id="2_pfyl1"]
+
+[node name="EditorUi" type="Control" unique_id=2056170556]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5y355")
+
+[node name="Screenshot20260420015424WorldBox" type="Sprite2D" parent="." unique_id=78412560]
+position = Vector2(540, 750)
+texture = ExtResource("2_pfyl1")
+
+[node name="Panel" type="Panel" parent="." unique_id=262083104]
+layout_mode = 0
+offset_top = 1592.0
+offset_right = 1080.0
+offset_bottom = 1920.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=1992710775]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 456.0
+theme_override_constants/v_separation = 60
+
+[node name="Panel" type="Panel" parent="Panel/GridContainer" unique_id=800805418]
+layout_mode = 2
+
+[node name="TextAngle" type="Label" parent="Panel/GridContainer/Panel" unique_id=345040296]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 251.0
+offset_bottom = 79.0
+text = "Launch Angle : 1°
+"
+
+[node name="Angle" type="HSlider" parent="Panel/GridContainer/Panel" unique_id=2069194556]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 53.0
+offset_right = 274.0
+offset_bottom = 101.0
+max_value = 360.0
+step = 0.01
+allow_greater = true
+
+[node name="Panel2" type="Panel" parent="Panel/GridContainer" unique_id=274757150]
+layout_mode = 2
+
+[node name="TextAngle" type="Label" parent="Panel/GridContainer/Panel2" unique_id=1164504523]
+self_modulate = Color(0.307899, 0.67355, 1, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 251.0
+offset_bottom = 79.0
+text = "Launch Angle : 1°
+"
+
+[node name="Angle" type="HSlider" parent="Panel/GridContainer/Panel2" unique_id=1763075008]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 53.0
+offset_right = 274.0
+offset_bottom = 101.0
+max_value = 360.0
+step = 0.01
+allow_greater = true
+
+[node name="TextBodyMass" type="Label" parent="Panel" unique_id=1441568540]
+self_modulate = Color(0.307899, 0.67355, 1, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 185.0
+offset_right = 251.0
+offset_bottom = 260.0
+text = "Body Mass : 10000
+
+"
+
+[node name="BodyMass" type="HSlider" parent="Panel" unique_id=1490069353]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 212.0
+offset_right = 274.0
+offset_bottom = 260.0
+min_value = 10.0
+max_value = 100000.0
+value = 10000.0
+
+[node name="TextScaling" type="Label" parent="Panel" unique_id=1947566477]
+visible = false
+self_modulate = Color(0.307899, 0.67355, 1, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 260.0
+offset_right = 251.0
+offset_bottom = 309.0
+text = "Scaling : 1
+"
+
+[node name="Scaling" type="HSlider" parent="Panel" unique_id=769989581]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 283.0
+offset_right = 274.0
+offset_bottom = 331.0
+max_value = 10.0
+step = 0.01
+value = 1.0
+allow_greater = true
+
+[node name="TextVelocity" type="Label" parent="Panel" unique_id=410915570]
+visible = false
+self_modulate = Color(0.307899, 0.67355, 1, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 106.0
+offset_right = 251.0
+offset_bottom = 155.0
+text = "Velocity : 1
+"
+
+[node name="Velocity" type="HSlider" parent="Panel" unique_id=860689418]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 129.0
+offset_right = 274.0
+offset_bottom = 177.0
+max_value = 1000.0
+step = 0.01
+value = 1.0
+allow_greater = true
+
+[node name="ColorLabel" type="Label" parent="Panel" unique_id=1589452453]
+visible = false
+layout_mode = 0
+offset_left = 967.0
+offset_top = 212.0
+offset_right = 1198.0
+offset_bottom = 238.0
+text = "BodyMass Color :"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel" unique_id=824733522]
+visible = false
+layout_mode = 0
+offset_left = 999.0
+offset_top = 239.0
+offset_right = 1073.0
+offset_bottom = 318.0
+color = Color(1, 1, 1, 1)
+
+[node name="Panel2" type="Panel" parent="." unique_id=639925481]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 1152.0
+offset_right = 1024.0
+offset_bottom = 1568.0

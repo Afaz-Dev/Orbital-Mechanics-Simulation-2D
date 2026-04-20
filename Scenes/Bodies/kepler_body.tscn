@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://dei4gwxlo4kxs"]
+[gd_scene format=3 uid="uid://8f32qw2itikc"]
 
-[ext_resource type="Script" uid="uid://cg4qj3s5hxhx0" path="res://Assets/Scripts/MassBody.gd" id="1_op1lt"]
-[ext_resource type="Texture2D" uid="uid://dpx7tjm73nfs7" path="res://Assets/Shapes/Circle.png" id="2_b6a10"]
-[ext_resource type="Script" uid="uid://vqp20gbmomff" path="res://addons/trail_2d/trail_2d.gd" id="3_tisxk"]
+[ext_resource type="Script" uid="uid://cni1l0kubfye2" path="res://Assets/Scripts/KeplerBody.gd" id="1_hmwqv"]
+[ext_resource type="Texture2D" uid="uid://dpx7tjm73nfs7" path="res://Assets/Shapes/Circle.png" id="2_w0wsl"]
+[ext_resource type="Script" uid="uid://vqp20gbmomff" path="res://addons/trail_2d/trail_2d.gd" id="3_7abhg"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m4svt"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ssxtw"]
+friction = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q0473"]
 
@@ -16,11 +17,11 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_aaiwa"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0627451)
 
-[node name="MassBody" type="RigidBody2D" unique_id=968814780 groups=["bodies"]]
-physics_material_override = SubResource("PhysicsMaterial_m4svt")
+[node name="KeplerBody" type="RigidBody2D" unique_id=968814780 groups=["bodies"]]
+physics_material_override = SubResource("PhysicsMaterial_ssxtw")
 gravity_scale = 0.0
 linear_damp_mode = 1
-script = ExtResource("1_op1lt")
+script = ExtResource("1_hmwqv")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1151125483]
@@ -30,15 +31,15 @@ shape = SubResource("CircleShape2D_q0473")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=58751046]
 scale = Vector2(0.04, 0.04)
-texture = ExtResource("2_b6a10")
+texture = ExtResource("2_w0wsl")
 
 [node name="Trail2D" type="Line2D" parent="." unique_id=2143452590]
 z_index = -1
 width_curve = SubResource("Curve_di3jh")
 gradient = SubResource("Gradient_aaiwa")
-script = ExtResource("3_tisxk")
+script = ExtResource("3_7abhg")
 
 [node name="OrbitPath" type="Line2D" parent="." unique_id=1785221970]
 width = 2.0
-script = ExtResource("3_tisxk")
-length = 10000000
+script = ExtResource("3_7abhg")
+length = 100

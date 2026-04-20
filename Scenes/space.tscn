@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://ssw2w5ji5c5k"]
 
-[ext_resource type="PackedScene" uid="uid://bj2pcv7y224na" path="res://Scenes/mass_body_ui.tscn" id="2_q7hjd"]
+[ext_resource type="PackedScene" uid="uid://bj2pcv7y224na" path="res://Scenes/editor_ui.tscn" id="2_p3ued"]
 [ext_resource type="PackedScene" uid="uid://qddvhefrxarj" path="res://Scenes/camera_node.tscn" id="2_xn8ut"]
+
+[sub_resource type="Environment" id="Environment_p3ued"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 5.0
+glow_bloom = 0.1
+glow_hdr_threshold = 0.5
 
 [node name="Space" type="Node" unique_id=1952923449]
 
@@ -11,4 +18,7 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=634380454]
 
-[node name="MassBodyUi" parent="CanvasLayer" unique_id=1608730036 instance=ExtResource("2_q7hjd")]
+[node name="EditorUi" parent="CanvasLayer" unique_id=2056170556 instance=ExtResource("2_p3ued")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1894792887]
+environment = SubResource("Environment_p3ued")
