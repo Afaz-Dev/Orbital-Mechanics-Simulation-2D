@@ -21,12 +21,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5y355")
 
-[node name="Screenshot20260420015424WorldBox" type="Sprite2D" parent="." unique_id=78412560]
-visible = false
+[node name="ToolboxRef" type="Sprite2D" parent="." unique_id=78412560]
 position = Vector2(540, 750)
 texture = ExtResource("2_pfyl1")
 
-[node name="Screenshot20260420015538WorldBox" type="Sprite2D" parent="." unique_id=1948343391]
+[node name="EditRef" type="Sprite2D" parent="." unique_id=1948343391]
 visible = false
 position = Vector2(540, 750)
 texture = ExtResource("3_gt1rj")
@@ -49,10 +48,11 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -376.0
+offset_top = -384.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/tab_separation = 40
+theme_override_constants/tab_separation = 35
 theme_override_font_sizes/font_size = 40
 tab_alignment = 1
 current_tab = 0
@@ -65,11 +65,13 @@ metadata/_tab_index = 0
 custom_minimum_size = Vector2(1080, 313)
 layout_mode = 0
 offset_right = 1080.0
-offset_bottom = 313.0
+offset_bottom = 321.0
 vertical_scroll_mode = 0
+scroll_hint_mode = 1
 script = ExtResource("4_ovnqb")
 wheel_scroll_damper = SubResource("Resource_ovnqb")
 dragging_scroll_damper = SubResource("Resource_4lhoj")
+debug_mode = true
 metadata/_custom_type_script = "uid://bgqglerkcylxx"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Game/SmoothScrollContainer" unique_id=2003204409]
@@ -109,3 +111,23 @@ metadata/_tab_index = 4
 visible = false
 layout_mode = 2
 metadata/_tab_index = 5
+
+[node name="Chem2" type="TabBar" parent="TabContainer" unique_id=1994432154]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[node name="Chem3" type="TabBar" parent="TabContainer" unique_id=1017113184]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 7
+
+[node name="Chem4" type="TabBar" parent="TabContainer" unique_id=1170621168]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 8
+
+[node name="Chem5" type="TabBar" parent="TabContainer" unique_id=1935916699]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 9
