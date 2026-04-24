@@ -48,7 +48,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -384.0
+offset_top = -376.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -63,9 +63,13 @@ metadata/_tab_index = 0
 
 [node name="SmoothScrollContainer" type="ScrollContainer" parent="TabContainer/Game" unique_id=851960143]
 custom_minimum_size = Vector2(1080, 313)
-layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 321.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.026
+anchor_right = 1.0
+anchor_bottom = 1.026
+offset_top = -313.138
+offset_bottom = -0.13800049
 vertical_scroll_mode = 0
 scroll_hint_mode = 1
 script = ExtResource("4_ovnqb")
@@ -74,17 +78,21 @@ dragging_scroll_damper = SubResource("Resource_4lhoj")
 debug_mode = true
 metadata/_custom_type_script = "uid://bgqglerkcylxx"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Game/SmoothScrollContainer" unique_id=2003204409]
-custom_minimum_size = Vector2(2000, 313)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-metadata/_smooth_scroll_default_mouse_filter_set = true
-
-[node name="Panel" type="Panel" parent="TabContainer/Game/SmoothScrollContainer/HBoxContainer" unique_id=212378313]
+[node name="Panel" type="Panel" parent="TabContainer/Game/SmoothScrollContainer" unique_id=212378313]
+custom_minimum_size = Vector2(2000, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Game/SmoothScrollContainer/Panel" unique_id=1812512304]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.044
+anchor_right = 0.54
+anchor_bottom = 1.044
+offset_top = -313.2
+offset_bottom = 0.0079956055
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
 [node name="Bodies" type="TabBar" parent="TabContainer" unique_id=1828603204]
