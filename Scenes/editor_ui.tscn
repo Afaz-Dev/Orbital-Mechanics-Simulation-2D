@@ -22,6 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_5y355")
 
 [node name="ToolboxRef" type="Sprite2D" parent="." unique_id=78412560]
+visible = false
 position = Vector2(540, 750)
 texture = ExtResource("2_pfyl1")
 
@@ -91,8 +92,35 @@ anchors_preset = -1
 anchor_top = 1.044
 anchor_right = 0.54
 anchor_bottom = 1.044
-offset_top = -313.2
+offset_left = 40.0
+offset_top = -303.992
+offset_right = -40.0
 offset_bottom = 0.0079956055
+columns = 2
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="Button" type="Button" parent="TabContainer/Game/SmoothScrollContainer/Panel/GridContainer" unique_id=1210947969]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="Button2" type="Button" parent="TabContainer/Game/SmoothScrollContainer/Panel/GridContainer" unique_id=814188074]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="Button3" type="Button" parent="TabContainer/Game/SmoothScrollContainer/Panel/GridContainer" unique_id=1515695963]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="Button4" type="Button" parent="TabContainer/Game/SmoothScrollContainer/Panel/GridContainer" unique_id=192047272]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
 [node name="Bodies" type="TabBar" parent="TabContainer" unique_id=1828603204]
@@ -120,22 +148,12 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
-[node name="Chem2" type="TabBar" parent="TabContainer" unique_id=1994432154]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 6
-
-[node name="Chem3" type="TabBar" parent="TabContainer" unique_id=1017113184]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 7
-
-[node name="Chem4" type="TabBar" parent="TabContainer" unique_id=1170621168]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 8
-
-[node name="Chem5" type="TabBar" parent="TabContainer" unique_id=1935916699]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 9
+[node name="Panel" type="Panel" parent="." unique_id=48306614]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.73700005
+anchor_bottom = 0.73700005
+offset_left = 32.0
+offset_top = -199.04004
+offset_right = 152.0
+offset_bottom = 0.95996094
